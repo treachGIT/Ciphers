@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Text;
 
 namespace Algorithms
 {
@@ -6,13 +8,10 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            string result = RailFence.Encrypt("CRYPTOGRAPHY", 3);
+            string res = CiphertextAutokey.Decrypt("11101001", "0011", "1001");
+            Console.WriteLine(res);
 
-            string result1 = RailFence.Decrypt("CTARPORPYYGH", 3);
-
-            int[] binaryword = LFSR.ConvertToBinaryCode2("e");
-
-            Console.WriteLine(binaryword);
         }
+
     }
 }

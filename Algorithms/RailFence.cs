@@ -16,7 +16,7 @@ namespace Algorithms
             {
                 for (int j = 0; j < inputText.Length; j++)
                 {
-                    matrix[i, j] = ' ';
+                    matrix[i, j] = '*';
                 }
             }
 
@@ -40,7 +40,7 @@ namespace Algorithms
             string encryptedResult = String.Empty;
             for (int i = 0; i < key; i++)
                 for (int j = 0; j < inputText.Length; j++)
-                    if (matrix[i, j] != ' ')
+                    if (matrix[i, j] != '*')
                         encryptedResult += matrix[i, j];
 
             return encryptedResult;

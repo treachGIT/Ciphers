@@ -6,11 +6,27 @@ using System.Threading.Tasks;
 
 namespace Algorithms
 {
-    public static class LFSR
+    public class LFSR
     {
-        public static int XOR(int a, int b)
+        private string seed;
+        private List<int> powerBits;
+        private string result;
+
+        public LFSR(string initialSeed, string polynomialBitMask)
         {
-            return a ^ b;
+            seed = initialSeed;
+            SetPowerBits(polynomialBitMask);
+            result = String.Empty;
+        }
+
+        private string XOR(char[] bitsToXor)
+        {
+            char current = '0';
+            foreach (char value in bitsToXor)
+            {
+                current ^= value;
+            }
+            return current.ToString();
         }
 
         public static string ConvertToBinaryCode(string plainText)
@@ -22,46 +38,105 @@ namespace Algorithms
                 sb.Append(Convert.ToString(c, 2).PadLeft(8, '0'));
             }
             return sb.ToString();
+        }      
+
+        private void SetPowerBits(string polynomialBitMask)
+        {
+            powerBits = new List<int>();
+            for (int i=0; i<polynomialBitMask.Length; i++)
+            {
+                if(polynomialBitMask[i] == '1')
+                {
+                    powerBits.Add(i);
+                }
+            }     
         }
 
-        public static int[] ConvertToBinaryCode2(string plainText)
+        public void GenerateNumber()
         {
-            StringBuilder sb = new StringBuilder();
+            char[] bitsToXor= new char[powerBits.Count];
+            for (int i = 0; i < powerBits.Count; i++) 
+                bitsToXor[i] = seed[powerBits[i]];
 
-            foreach (char c in plainText.ToCharArray())
-            {
-                sb.Append(Convert.ToString(c, 2).PadLeft(8, '0'));
-            }
+            string newFirstBit = XOR(bitsToXor);
+            seed = seed.Insert(0, newFirstBit);
+            char lastBit = seed[seed.Length - 1];
+            seed = seed.Remove(seed.Length - 1); 
 
-            int length = sb.ToString().Length;
-            string word = sb.ToString();
-            int[] result = new int[length];
-            for(int i = 0; i < length; i++)
+            result += lastBit;
+        }
+
+        public void GenerateNumber2()
+        {
+            char[] bitsToXor = new char[powerBits.Count];
+            for (int i = 0; i < powerBits.Count; i++)
+                bitsToXor[i] = seed[powerBits[i]];
+
+            string newFirstBit = XOR(bitsToXor);
+            seed = seed.Insert(0, newFirstBit);
+            char lastBit = seed[seed.Length - 1];
+            seed = seed.Remove(seed.Length - 1);
+
+            result += newFirstBit;
+        }
+
+        public string EncryptCiphertextAutokey(string inputText)
+        {       
+            result = string.Empty;
+            for(int i = 0; i < inputText.Length; i++)
             {
-                result[i] = int.Parse(word[i].ToString());
+                char[] bitsToXor = new char[powerBits.Count];
+                for (int j = 0; j < powerBits.Count; j++)
+                    bitsToXor[j] = seed[powerBits[j]];
+
+                string newFirstBit = XOR(bitsToXor);
+                char c = newFirstBit[0];
+                char t = inputText[i];
+
+                string res = (c ^ t).ToString();
+
+                seed = seed.Insert(0, res);
+                char lastBit = seed[seed.Length - 1];
+                seed = seed.Remove(seed.Length - 1);               
+
+                result += res;
             }
+            return result;
+        }
+
+        public string DecryptCiphertextAutokey(string inputText)
+        {
+            result = string.Empty;
+            for (int i = 0; i < inputText.Length; i++)
+            {
+                char[] bitsToXor = new char[powerBits.Count];
+                for (int j = 0; j < powerBits.Count; j++)
+                    bitsToXor[j] = seed[powerBits[j]];
+
+                string newFirstBit = XOR(bitsToXor);
+                char c = newFirstBit[0];
+                char t = inputText[i];
+
+                string res = (c ^ t).ToString();
+                result += res;
+
+                seed = seed.Insert(0, inputText[i].ToString());
+                char lastBit = seed[seed.Length - 1];
+                seed = seed.Remove(seed.Length - 1);
+
+        
+            }
+            return result;
+        }
+
+        public string GenerateKey(string plainText)
+        {
+            result = string.Empty;
+            for (int i = 0; i < plainText.Length; i++)
+                GenerateNumber2();
 
             return result;
         }
 
-        public static void StartGenerating()
-        {
-
-        }
-
-        public static List<int> SetXorOrder(string ziarno)
-        {
-            List<int> list = new List<int>();
-            for (int i = 0; i < ziarno.Length; i++)
-            {
-                if (ziarno[i] == 1)
-                {
-                    list.Add(i);
-                }
-            }
-            return list;
-        }
-
-       
     }
 }
