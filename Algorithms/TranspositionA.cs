@@ -38,8 +38,9 @@ namespace Algorithms
             for (int i = 0; i < key.Length; i++)
             {
                 int currentKey = int.Parse(key[i].ToString());
-
+                return "xd";
             }
+            return "xd";
         }
     }
 }
