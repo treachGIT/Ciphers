@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlgorithmsTest", "Algorithm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.App.UWP", "Algorithms.App\Algorithms.App.UWP\Algorithms.App.UWP.csproj", "{BED16CF7-FF5A-4DE8-B474-8BB4064F737F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.App", "Algorithms.App\Algorithms.App\Algorithms.App.csproj", "{3D676A83-F062-450F-9A7B-06F2062F8495}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Algorithms.App", "Algorithms.App\Algorithms.App\Algorithms.App.csproj", "{3D676A83-F062-450F-9A7B-06F2062F8495}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.App.macOS", "Algorithms.App\Algorithms.App.macOS\Algorithms.App.macOS.csproj", "{6DD7E962-4ACE-43C4-9B5C-E9CEED367867}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgorithmsLibrary", "AlgorithmsLibrary\AlgorithmsLibrary.csproj", "{3F1C569B-7503-458F-9EF3-E7C559F1CD13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -113,6 +115,22 @@ Global
 		{6DD7E962-4ACE-43C4-9B5C-E9CEED367867}.Release|x64.Build.0 = Release|Any CPU
 		{6DD7E962-4ACE-43C4-9B5C-E9CEED367867}.Release|x86.ActiveCfg = Release|Any CPU
 		{6DD7E962-4ACE-43C4-9B5C-E9CEED367867}.Release|x86.Build.0 = Release|Any CPU
+		{3F1C569B-7503-458F-9EF3-E7C559F1CD13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F1C569B-7503-458F-9EF3-E7C559F1CD13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F1C569B-7503-458F-9EF3-E7C559F1CD13}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{3F1C569B-7503-458F-9EF3-E7C559F1CD13}.Debug|ARM.Build.0 = Debug|Any CPU
+		{3F1C569B-7503-458F-9EF3-E7C559F1CD13}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3F1C569B-7503-458F-9EF3-E7C559F1CD13}.Debug|x64.Build.0 = Debug|Any CPU
+		{3F1C569B-7503-458F-9EF3-E7C559F1CD13}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3F1C569B-7503-458F-9EF3-E7C559F1CD13}.Debug|x86.Build.0 = Debug|Any CPU
+		{3F1C569B-7503-458F-9EF3-E7C559F1CD13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F1C569B-7503-458F-9EF3-E7C559F1CD13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F1C569B-7503-458F-9EF3-E7C559F1CD13}.Release|ARM.ActiveCfg = Release|Any CPU
+		{3F1C569B-7503-458F-9EF3-E7C559F1CD13}.Release|ARM.Build.0 = Release|Any CPU
+		{3F1C569B-7503-458F-9EF3-E7C559F1CD13}.Release|x64.ActiveCfg = Release|Any CPU
+		{3F1C569B-7503-458F-9EF3-E7C559F1CD13}.Release|x64.Build.0 = Release|Any CPU
+		{3F1C569B-7503-458F-9EF3-E7C559F1CD13}.Release|x86.ActiveCfg = Release|Any CPU
+		{3F1C569B-7503-458F-9EF3-E7C559F1CD13}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
