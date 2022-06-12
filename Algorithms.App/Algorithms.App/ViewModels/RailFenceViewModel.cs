@@ -15,35 +15,41 @@ namespace Algorithms.App.ViewModels
 
         private string textToEncrypt;
 
-        private int key;
-
         private string encryptResult;
+
+        private string textToDecrypt;
+
+        private string decryptResult;
 
         public RailFenceViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
  
             this.encryptCommand = new Command(this.Encrypt);
+            this.decryptCommand = new Command(this.Decrypt);
             this.navigateBackCommand = new Command(async () => await _navigationService.NavigateBackAsync());
         }
 
         private Command encryptCommand;
 
-        private Command navigateBackCommand;
+        private Command decryptCommand;
+
+        private Command navigateBackCommand;    
 
         public ICommand EncryptCommand => this.encryptCommand;
+        public ICommand DecryptCommand => this.decryptCommand;
         public ICommand NavigateBackCommand => this.navigateBackCommand;
 
         public string TextToEncrypt
         {
             get => this.textToEncrypt;
-            set => this.SetProperty(ref this.textToEncrypt, value);
-        }
-
-        public int Key
-        {
-            get => this.key;
-            set => this.SetProperty(ref this.key, value);
+            set
+            {
+                if (this.SetProperty(ref this.textToEncrypt, value))
+                {
+                    EncryptResult = String.Empty;
+                }
+            }
         }
 
         public string EncryptResult
@@ -52,10 +58,32 @@ namespace Algorithms.App.ViewModels
             set => this.SetProperty(ref this.encryptResult, value);
         }
 
+        public string TextToDecrypt
+        {
+            get => this.textToDecrypt;
+            set
+            {
+                if (this.SetProperty(ref this.textToDecrypt, value))
+                {
+                    DecryptResult = String.Empty;
+                }
+            }
+        }
+
+        public string DecryptResult
+        {
+            get => this.decryptResult;
+            set => this.SetProperty(ref this.decryptResult, value);
+        }
+
         public void Encrypt()
         {
-            //var result = RailFence.Encrypt(TextToEncrypt, 3);
-            EncryptResult = "xd";
+            EncryptResult = RailFence.Encrypt(TextToEncrypt, 3);
+        }
+
+        public void Decrypt()
+        {
+            DecryptResult = RailFence.Decrypt(TextToDecrypt, 3);
         }
     }
 }

@@ -62,12 +62,45 @@ namespace Algorithms
             string[] tempKey = orderKey.Split('-');
             int[] key = Array.ConvertAll(tempKey, s => int.Parse(s));
 
-            for (int i = 0; i < rowCount; i ++)
+            string[] textLines = new string[rowCount];
+            int index = 0;
+            for (int i = 0; i < inputText.Length; i += lenght)
             {
-              
+
+                if (inputText.Length < i + lenght)
+                {
+                    textLines[index] = inputText.Substring(i);
+                }
+                else
+                {
+                    textLines[index] = inputText.Substring(i, lenght);
+                }
+        
+                Console.WriteLine(textLines[index]);
+                index++;
+           
             }
 
-            return "xd";
+            string result = String.Empty;
+            for (int i = 0; i < rowCount; i++)
+            {
+                key = key.OrderBy(x => x).ToArray();
+                foreach (int keyIndex in key)
+                {
+                    try
+                    {
+                        result += textLines[i][keyIndex - 1];
+                    }
+                    catch(Exception ex)
+                    {
+
+                    }
+                    Console.WriteLine(keyIndex);
+                }
+
+            }
+
+            return result;
 
         }
     }

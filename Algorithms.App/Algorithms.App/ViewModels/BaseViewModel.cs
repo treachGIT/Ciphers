@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq.Expressions;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Algorithms.App.ViewModels
 {
-    public abstract class BaseViewModel
-	{
+    public abstract class BaseViewModel : INotifyPropertyChanged
+    {
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		protected BaseViewModel()
@@ -16,28 +18,28 @@ namespace Algorithms.App.ViewModels
 
 		}
 
-		public virtual void Prepare()
-		{
+        public bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
+        {
+            if (Object.Equals(storage, value))
+                return false;
 
-		}
+            storage = value;
+            OnPropertyChanged(propertyName);
+            return true;
+        }
 
-		public bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
-		{
-			if (Object.Equals(storage, value))
-				return false;
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
-			storage = value;
-			OnPropertyChanged(propertyName);
-			return true;
-		}
+        public virtual void Prepare()
+        {
 
-		protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-		{
-			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-		}
+        }
 
-
-	}
+    
+    }
 
 	public abstract class BaseViewModel<TParameter> : BaseViewModel
 	{
