@@ -63,6 +63,15 @@
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\..\packages\Xamarin.Forms.5.0.0.2196\lib\Xamarin.Mac\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+      <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.6.0.0\lib\netstandard2.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>..\..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection">
+      <HintPath>..\..\packages\Microsoft.Extensions.DependencyInjection.6.0.0\lib\netstandard2.1\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
