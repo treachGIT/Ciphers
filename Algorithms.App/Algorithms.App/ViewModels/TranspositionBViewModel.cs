@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Algorithms.App.Services;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Algorithms.App.ViewModels
 {
-    internal class TranspositionBViewModel
+    public class TranspositionBViewModel : BaseViewModel
     {
+   
     }
 }

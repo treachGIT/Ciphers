@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Algorithms.App.Views.LFSRPage">
+
+    <Grid Padding="30,10,30,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label FontSize="40" Text="LFSR Generator" FontAttributes="Bold" Grid.ColumnSpan="2" Grid.Row="0" Margin="0,0,0,50"/>
+
+        <StackLayout Grid.Column="0" Grid.Row="1" Margin="0,0,30,0">
+            <Label Text="Seed" FontAttributes="Bold"/>
+            <Entry Placeholder="Enter text" Text="{Binding Seed, Mode=TwoWay}" IsReadOnly="{Binding CanStop}"></Entry>
+            <Label Text="Polynomial bit mask" FontAttributes="Bold"/>
+            <Entry Placeholder="Enter text" Text="{Binding PolynomialBitMask, Mode=TwoWay}" IsReadOnly="{Binding CanStop}"></Entry>
+
+        </StackLayout>
+
+        <StackLayout Grid.Column="1" Grid.Row="1" Margin="30,0,0,0" VerticalOptions="End" >
+            <Button Padding="10" Text="Start generating" Command="{Binding GenerateCommand}" IsEnabled="{Binding CanStart}"/>
+            <Button Padding="10" Text="Stop generating"  Command="{Binding StopGeneratingCommand}" IsEnabled="{Binding CanStop}"/> 
+        </StackLayout>
+
+        <Editor Margin="0,30" IsReadOnly="True" Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding Result}" />
+
+    </Grid>
+</ContentPage>

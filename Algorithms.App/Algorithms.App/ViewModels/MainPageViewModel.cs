@@ -17,6 +17,12 @@ namespace Algorithms.App.ViewModels
 
             this.navigateToRailFenceCommand = new Command(async () => await _navigationService.NavigateToAsync<RailFenceViewModel>());
 
+            this.navigateToLFSRGeneratorCommand = new Command(async () => await _navigationService.NavigateToAsync<LFSRViewModel>());
+
+            this.navigateToStreamCipherCommand = new Command(async () => await _navigationService.NavigateToAsync<StreamCipherPageViewModel>());
+
+            this.navigateToCiphertextAutokeyCommand = new Command(async () => await _navigationService.NavigateToAsync<CiphertextAutokeyViewModel>());
+
         }
 
         private Command navigateToRailFenceCommand;

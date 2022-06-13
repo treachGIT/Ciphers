@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace Algorithms
+namespace AlgorithmsLibrary
 {
-    public static class TranspositionA
+    public class TranspositionA
     {
         public static string Encrypt(string inputText, int length, string orderKey)
         {
@@ -14,7 +12,7 @@ namespace Algorithms
             //najpierw dzielimy długość tekstu na długość rzędu
             //jeżeli zostaje nam reszta z dzielenia dodajemy kolejny rząd 
             int rowCount = inputText.Length / length;
-            if ( (inputText.Length % length) != 0)
+            if ((inputText.Length % length) != 0)
             {
                 rowCount++;
             }
@@ -24,11 +22,11 @@ namespace Algorithms
 
             //wypełniamy macierz
             int index = 0;
-            for(int i = 0; i < rowCount; i++)
+            for (int i = 0; i < rowCount; i++)
             {
-                for(int j = 0; j < length; j++)
+                for (int j = 0; j < length; j++)
                 {
-                    if(index < inputText.Length)
+                    if (index < inputText.Length)
                     {
                         matrix[i, j] = inputText[index];
                         index++;
@@ -36,7 +34,7 @@ namespace Algorithms
                     else
                     {
                         matrix[i, j] = '\0';
-                    }               
+                    }
                 }
             }
 
@@ -50,8 +48,8 @@ namespace Algorithms
             {
                 //przechodzimy po wszystkich kluczach, poruszamy się w kolumnie i dodajemy do wyniku dane komórki
                 foreach (int keyIndex in key)
-                {                 
-                     result += matrix[i, keyIndex-1];                   
+                {
+                    result += matrix[i, keyIndex - 1];
                 }
             }
 
@@ -90,10 +88,10 @@ namespace Algorithms
                 {
                     textLines[index] = inputText.Substring(i, length);
                 }
-        
+
                 Console.WriteLine(textLines[index]);
                 index++;
-           
+
             }
 
             //przechodzimy po każdym rzędzie i go porządkujemy 
@@ -102,23 +100,24 @@ namespace Algorithms
             {
                 //przygotowujemy nową tablicę do uprządkowanego rzędu
                 char[] resultline = new char[length];
-                Array.Fill(resultline, '\0');
+                for(int x = 0; x < resultline.Length; x++)
+                    resultline[x] = '\0';
 
                 //przechodzimy po wszystkich kluczach
                 int j = 0;
                 foreach (int keyIndex in key)
                 {
                     //jeżeli jesteśmy w ostatnim rzędzie w ostatnim znaku, wpisujemy go w kolumnę o najniższym indeksie
-                    if (textLines[i].Length - 1 == j && i+1 == rowCount)
+                    if (textLines[i].Length - 1 == j && i + 1 == rowCount)
                     {
-                        for(int x = 0; x < resultline.Length; x++)
+                        for (int x = 0; x < resultline.Length; x++)
                         {
                             if (resultline[x] == '\0')
                             {
                                 resultline[x] = textLines[i][j];
                                 break;
                             }
-                            
+
                         }
                         break;
                     }

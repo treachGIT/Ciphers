@@ -13,9 +13,17 @@ namespace Algorithms.App.ViewModels
     {
         private INavigationService _navigationService;
 
+        private bool canEncrypt = false;
+
+        private bool canDecrypt = false;
+
+        private string encryptKey;
+
         private string textToEncrypt;
 
         private string encryptResult;
+
+        private string decryptKey;
 
         private string textToDecrypt;
 
@@ -40,6 +48,19 @@ namespace Algorithms.App.ViewModels
         public ICommand DecryptCommand => this.decryptCommand;
         public ICommand NavigateBackCommand => this.navigateBackCommand;
 
+        public string EncryptKey
+        {
+            get => this.encryptKey;
+            set
+            {
+                if (this.SetProperty(ref this.encryptKey, value))
+                {
+                    ValidateEncryptInput();
+                    EncryptResult = String.Empty;
+                }
+            }
+        }
+
         public string TextToEncrypt
         {
             get => this.textToEncrypt;
@@ -47,6 +68,7 @@ namespace Algorithms.App.ViewModels
             {
                 if (this.SetProperty(ref this.textToEncrypt, value))
                 {
+                    ValidateEncryptInput();
                     EncryptResult = String.Empty;
                 }
             }
@@ -58,6 +80,19 @@ namespace Algorithms.App.ViewModels
             set => this.SetProperty(ref this.encryptResult, value);
         }
 
+        public string DecryptKey
+        {
+            get => this.decryptKey;
+            set 
+            {
+                if (this.SetProperty(ref this.decryptKey, value))
+                {
+                    ValidateDecryptInput();
+                    DecryptResult = String.Empty;
+                }
+            }
+        }
+
         public string TextToDecrypt
         {
             get => this.textToDecrypt;
@@ -65,6 +100,7 @@ namespace Algorithms.App.ViewModels
             {
                 if (this.SetProperty(ref this.textToDecrypt, value))
                 {
+                    ValidateDecryptInput();
                     DecryptResult = String.Empty;
                 }
             }
@@ -76,14 +112,50 @@ namespace Algorithms.App.ViewModels
             set => this.SetProperty(ref this.decryptResult, value);
         }
 
+        public bool CanEncrypt
+        {
+            get => this.canEncrypt;
+            set => this.SetProperty(ref this.canEncrypt, value);
+        }
+
+        public bool CanDecrypt
+        {
+            get => this.canDecrypt;
+            set => this.SetProperty(ref this.canDecrypt, value);
+        }
+
+        public void ValidateEncryptInput()
+        {
+            if (String.IsNullOrEmpty(EncryptKey) || !int.TryParse(EncryptKey, out int number) 
+                || String.IsNullOrEmpty(TextToEncrypt) )
+            {
+                CanEncrypt = false;
+                return;
+            }       
+
+            CanEncrypt = true;
+        }
+
+        public void ValidateDecryptInput()
+        {
+            if (String.IsNullOrEmpty(DecryptKey) || !int.TryParse(DecryptKey, out int number)
+            || String.IsNullOrEmpty(TextToDecrypt))
+            {
+                CanDecrypt = false;
+                return;
+            }
+
+            CanDecrypt = true;
+        }
+
         public void Encrypt()
         {
-            EncryptResult = RailFence.Encrypt(TextToEncrypt, 3);
+            EncryptResult = RailFence.Encrypt(TextToEncrypt, int.Parse(EncryptKey));
         }
 
         public void Decrypt()
         {
-            DecryptResult = RailFence.Decrypt(TextToDecrypt, 3);
+            DecryptResult = RailFence.Decrypt(TextToDecrypt, int.Parse(DecryptKey));
         }
     }
 }

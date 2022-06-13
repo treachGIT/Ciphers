@@ -12,7 +12,10 @@ namespace Algorithms.App
 		private static Dictionary<Type, Type> viewModelLookup = new Dictionary<Type, Type>
 		{
 			{ typeof(MainPageViewModel), typeof(MainPage) },
-			{ typeof(RailFenceViewModel), typeof(RailFencePage) }
+			{ typeof(RailFenceViewModel), typeof(RailFencePage) },
+			{ typeof(LFSRViewModel), typeof(LFSRPage) },
+			{ typeof(StreamCipherPageViewModel), typeof(StreamCipherPage) },
+			{ typeof(CiphertextAutokeyViewModel), typeof(CiphertextAutokeyPage) }
 		};
 
 		public static Page CreatePage(Type viewModelType)

@@ -41,6 +41,9 @@ namespace Algorithms.App
 
             serviceProvider.AddTransient<MainPageViewModel>();
             serviceProvider.AddTransient<RailFenceViewModel>();
+            serviceProvider.AddTransient<LFSRViewModel>();
+            serviceProvider.AddTransient<StreamCipherPageViewModel>();
+            serviceProvider.AddTransient<CiphertextAutokeyViewModel>();
 
             ServiceProvider = serviceProvider.BuildServiceProvider();
         }

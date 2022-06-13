@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Algorithms.App.MainPage">
 
-    <StackLayout BackgroundColor="#181818" Padding="30,10,30,10">
+    <StackLayout Padding="30,10,30,10">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
@@ -21,45 +21,41 @@
 
 
             <StackLayout Grid.Row="0" Grid.ColumnSpan="3">
-                <Label Margin="0,20,0,0" TextColor="White" FontSize="20" HorizontalOptions="Center" >Classical Ciphers</Label>
+                <Label Margin="0,20,0,0" FontSize="20" HorizontalOptions="Center" >Classical Ciphers</Label>
                 <BoxView VerticalOptions="Center" HorizontalOptions="Center" 
                       HeightRequest="2" Color="#5b5d68" ></BoxView>
             </StackLayout>
 
             <Button Margin="0,10,0,0" Grid.Row="1" Grid.Column="0" TextColor="White" Text="Rail fence" WidthRequest="120" HeightRequest="120"
-                      CornerRadius="60" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040" Command="{Binding NavigateToRailFenceCommand}"/>
+                      CornerRadius="30" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040" Command="{Binding NavigateToRailFenceCommand}"/>
             <Button Margin="0,10,0,0" Grid.Row="1" Grid.Column="1" TextColor="White" Text="Transposition A" WidthRequest="120" HeightRequest="120"
-                      CornerRadius="60" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040"/>
+                      CornerRadius="30" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040"/>
             <Button Margin="0,10,0,0" Grid.Row="1" Grid.Column="2" TextColor="White" Text="Transposition B" WidthRequest="120" HeightRequest="120"
-                      CornerRadius="60" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040"/>
+                      CornerRadius="30" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040"/>
 
             <StackLayout Grid.Row="2" Grid.ColumnSpan="3">
-                <Label Margin="0,20,0,0" TextColor="White" FontSize="20" HorizontalOptions="Center" >Stream Ciphers</Label>
+                <Label Margin="0,20,0,0"  FontSize="20" HorizontalOptions="Center" >Stream Ciphers</Label>
                 <BoxView VerticalOptions="Center" HorizontalOptions="Center" 
                       HeightRequest="2" Color="#5b5d68" ></BoxView>
             </StackLayout>
 
             <Button Margin="0,10,0,0" Grid.Row="3" Grid.Column="0" TextColor="White" Text="LFSR Generator" WidthRequest="120" HeightRequest="120"
-                      CornerRadius="60" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040"/>
+                      CornerRadius="30" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040" Command="{Binding NavigateToLFSRGeneratorCommand}"/>
             <Button Margin="0,10,0,0" Grid.Row="3" Grid.Column="1" TextColor="White" Text=" Synchronous&#10;Stream Cipher" WidthRequest="120" HeightRequest="120"
-                      CornerRadius="60" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040"/>
+                      CornerRadius="30" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040" Command="{Binding NavigateToStreamCipherCommand}"/> 
             <Button Margin="0,10,0,0" Grid.Row="3" Grid.Column="2" TextColor="White" Text="Ciphertext&#10;  Autokey" WidthRequest="120" HeightRequest="120"
-                      CornerRadius="60" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040"/>
+                      CornerRadius="30" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040" Command="{Binding NavigateToCiphertextAutokeyCommand}"/> 
 
             <StackLayout Grid.Row="4" Grid.ColumnSpan="3">
-                <Label Margin="0,20,0,0" TextColor="White" FontSize="20" HorizontalOptions="Center" >Symmetric Ciphers</Label>
+                <Label Margin="0,20,0,0" FontSize="20" HorizontalOptions="Center" >Block Ciphers</Label>
                 <BoxView VerticalOptions="Center" HorizontalOptions="Center" 
                       HeightRequest="2" Color="#5b5d68" ></BoxView>
             </StackLayout>
             <Button Margin="0,10,0,0" Grid.Row="5" Grid.Column="1" TextColor="White" Text="DES" WidthRequest="120" HeightRequest="120"
-                      CornerRadius="60" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040"/>
-
+                      CornerRadius="30" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040"/>
 
         </Grid>
-          <Button Margin="0,10,0,0" Grid.Row="5" Grid.Column="1" TextColor="White" Text="DES" WidthRequest="120" HeightRequest="120"
-                      CornerRadius="60" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="SlateGray"/>
-
-
+     
     </StackLayout>
 
 </ContentPage>

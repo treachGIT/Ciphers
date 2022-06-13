@@ -102,73 +102,15 @@ namespace Algorithms
 
             for (int i = 0; i < 16; i++)
             {
-                string calculationResult = CalculateRightBlock(rightBlock, keys[i]);
-                string xorResult = XORStrings(leftBlock, calculationResult);
-
-                leftBlock = rightBlock;
-                rightBlock = xorResult;
+              
             }
 
-            string temp = leftBlock;
-            leftBlock = rightBlock;
-            rightBlock = temp;
+     
 
-            string inputAfterKeys = leftBlock + rightBlock;
-            string result = Permutation(inputAfterKeys, DES_Constants.InverseInitialPermutation);
-
-            return result;
+            return "test";
         }
 
-        private string CalculateRightBlock(string rightBlock, string key)
-        {
-            StringBuilder builder = new StringBuilder(); 
-            rightBlock = Permutation(rightBlock, DES_Constants.ETable);
-            string XOR_result = XORStrings(key, rightBlock);
-
-            for (int i = 0; i < 8; i++)
-            {
-                char[] row = { XOR_result[i * 6], XOR_result[(i * 6) + 5] };
-                char[] col = XOR_result.Substring(i * 6 + 1, 4).ToCharArray();
-                string transformedInto4Bits;
-                int[] chosenPermutation;
-                switch (i)
-                {
-                    case 0:
-                        chosenPermutation = DES_Constants.S1;
-                        break;
-                    case 1:
-                        chosenPermutation = DES_Constants.S2;
-                        break;
-                    case 2:
-                        chosenPermutation = DES_Constants.S3;
-                        break;
-                    case 3:
-                        chosenPermutation = DES_Constants.S4;
-                        break;
-                    case 4:
-                        chosenPermutation = DES_Constants.S5;
-                        break;
-                    case 5:
-                        chosenPermutation = DES_Constants.S6;
-                        break;
-                    case 6:
-                        chosenPermutation = DES_Constants.S7;
-                        break;
-                    case 7:
-                        chosenPermutation = DES_Constants.S8;
-                        break;
-                    default:
-                        chosenPermutation = DES_Constants.S1;
-                        break;
-                }
-                transformedInto4Bits = Convert.ToString(chosenPermutation[BinaryToDecimal(row) * BinaryToDecimal(col)], 2).PadLeft(4, '0');
-                builder.Append(transformedInto4Bits);
-            }
-
-            // temporary
-            return builder.ToString();
-
-        }
+       
 
         private string XORStrings(string left, string right)
         {
@@ -183,14 +125,5 @@ namespace Algorithms
             return new string(temp);
         }
 
-        private int BinaryToDecimal(char[] binary)
-        {
-            int decimalNumber = 0;
-            for (int i = binary.Length - 1, j = 1; i >= 0; i--, j *= 2)
-            {
-                decimalNumber += binary[i] == '1' ? j : 0;
-            }
-            return decimalNumber;
-        }
     }   
 }
