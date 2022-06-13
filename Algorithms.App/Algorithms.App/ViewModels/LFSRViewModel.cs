@@ -35,16 +35,21 @@ namespace Algorithms.App.ViewModels
 
             this.stopGeneratingCommand = new Command(StopGenerating);
 
-           // this.navigateBackCommand = new Command(async () => await _navigationService.NavigateBackAsync());
+            this.navigateBackCommand = new Command(async () => await _navigationService.NavigateBackAsync());
         }
 
         private Command generateCommand;
 
         private Command stopGeneratingCommand;
 
+        private Command navigateBackCommand;
+
         public ICommand GenerateCommand => this.generateCommand;
 
         public ICommand StopGeneratingCommand => this.stopGeneratingCommand;
+
+        public ICommand NavigateBackCommand => this.navigateBackCommand;
+
 
         public string Seed
         {

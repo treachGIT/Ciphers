@@ -12,6 +12,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
         <Label FontSize="40" Text="LFSR Generator" FontAttributes="Bold" Grid.ColumnSpan="2" Grid.Row="0" Margin="0,0,0,50"/>
@@ -29,7 +30,7 @@
             <Button Padding="10" Text="Stop generating"  Command="{Binding StopGeneratingCommand}" IsEnabled="{Binding CanStop}"/> 
         </StackLayout>
 
-        <Editor Margin="0,30" IsReadOnly="True" Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding Result}" />
-
+        <Editor Margin="0,30" TextColor="White" IsReadOnly="True" Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding Result}" />
+        <Button Padding="10" Text="Go back" Grid.Row="3"  Command="{Binding NavigateBackCommand}"/> 
     </Grid>
 </ContentPage>

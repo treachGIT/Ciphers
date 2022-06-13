@@ -39,15 +39,19 @@ namespace Algorithms.App.ViewModels
             this.encryptCommand = new Command(this.Encrypt);
             this.decryptCommand = new Command(this.Decrypt);
 
-            // this.navigateBackCommand = new Command(async () => await _navigationService.NavigateBackAsync());
+            this.navigateBackCommand = new Command(async () => await _navigationService.NavigateBackAsync());
         }
 
         private Command encryptCommand;
 
         private Command decryptCommand;
 
+        private Command navigateBackCommand;
+
         public ICommand EncryptCommand => this.encryptCommand;
         public ICommand DecryptCommand => this.decryptCommand;
+        public ICommand NavigateBackCommand => this.navigateBackCommand;
+
 
         public string EncryptBitString
         {

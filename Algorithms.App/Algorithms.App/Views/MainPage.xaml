@@ -26,12 +26,12 @@
                       HeightRequest="2" Color="#5b5d68" ></BoxView>
             </StackLayout>
 
-            <Button Margin="0,10,0,0" Grid.Row="1" Grid.Column="0" TextColor="White" Text="Rail fence" WidthRequest="120" HeightRequest="120"
-                      CornerRadius="30" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040" Command="{Binding NavigateToRailFenceCommand}"/>
-            <Button Margin="0,10,0,0" Grid.Row="1" Grid.Column="1" TextColor="White" Text="Transposition A" WidthRequest="120" HeightRequest="120"
-                      CornerRadius="30" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040"/>
-            <Button Margin="0,10,0,0" Grid.Row="1" Grid.Column="2" TextColor="White" Text="Transposition B" WidthRequest="120" HeightRequest="120"
-                      CornerRadius="30" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040"/>
+            <Button  Margin="0,10,0,0" Grid.Row="1" Grid.Column="0" TextColor="White" Text="Rail fence" WidthRequest="150" HeightRequest="120"
+                      CornerRadius="30" VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding NavigateToRailFenceCommand}"/>
+            <Button Margin="0,10,0,0" Grid.Row="1" Grid.Column="1" TextColor="White" Text="Transposition A" WidthRequest="150" HeightRequest="120"
+                      CornerRadius="30" VerticalOptions="Center" HorizontalOptions="Center" />
+            <Button Margin="0,10,0,0" Grid.Row="1" Grid.Column="2" TextColor="White" Text="Transposition B" WidthRequest="150" HeightRequest="120"
+                      CornerRadius="30" VerticalOptions="Center" HorizontalOptions="Center" />
 
             <StackLayout Grid.Row="2" Grid.ColumnSpan="3">
                 <Label Margin="0,20,0,0"  FontSize="20" HorizontalOptions="Center" >Stream Ciphers</Label>
@@ -39,11 +39,11 @@
                       HeightRequest="2" Color="#5b5d68" ></BoxView>
             </StackLayout>
 
-            <Button Margin="0,10,0,0" Grid.Row="3" Grid.Column="0" TextColor="White" Text="LFSR Generator" WidthRequest="120" HeightRequest="120"
+            <Button Margin="0,10,0,0" Grid.Row="3" Grid.Column="0" TextColor="White" Text="LFSR Generator" WidthRequest="150" HeightRequest="120"
                       CornerRadius="30" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040" Command="{Binding NavigateToLFSRGeneratorCommand}"/>
-            <Button Margin="0,10,0,0" Grid.Row="3" Grid.Column="1" TextColor="White" Text=" Synchronous&#10;Stream Cipher" WidthRequest="120" HeightRequest="120"
+            <Button Margin="0,10,0,0" Grid.Row="3" Grid.Column="1" TextColor="White" Text=" Synchronous&#10;Stream Cipher" WidthRequest="150" HeightRequest="120"
                       CornerRadius="30" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040" Command="{Binding NavigateToStreamCipherCommand}"/> 
-            <Button Margin="0,10,0,0" Grid.Row="3" Grid.Column="2" TextColor="White" Text="Ciphertext&#10;  Autokey" WidthRequest="120" HeightRequest="120"
+            <Button Margin="0,10,0,0" Grid.Row="3" Grid.Column="2" TextColor="White" Text="Ciphertext&#10;  Autokey" WidthRequest="150" HeightRequest="120"
                       CornerRadius="30" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040" Command="{Binding NavigateToCiphertextAutokeyCommand}"/> 
 
             <StackLayout Grid.Row="4" Grid.ColumnSpan="3">
@@ -51,7 +51,7 @@
                 <BoxView VerticalOptions="Center" HorizontalOptions="Center" 
                       HeightRequest="2" Color="#5b5d68" ></BoxView>
             </StackLayout>
-            <Button Margin="0,10,0,0" Grid.Row="5" Grid.Column="1" TextColor="White" Text="DES" WidthRequest="120" HeightRequest="120"
+            <Button Margin="0,10,0,0" Grid.Row="5" Grid.Column="1" TextColor="White" Text="DES" WidthRequest="150" HeightRequest="120"
                       CornerRadius="30" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040"/>
 
         </Grid>
