@@ -108,8 +108,12 @@ namespace Algorithms.App.ViewModels
                 this.token.Token.ThrowIfCancellationRequested();
                 while (true)
                 {
-                    Result = keyGenerator.GenerateNumber();
-                    await Task.Delay(500, this.token.Token);
+                    MainThread.BeginInvokeOnMainThread(() =>
+                    {
+                        Result = keyGenerator.GenerateNumber();
+                    });
+
+                    await Task.Delay(500, this.token.Token);         
                 }
             }
             catch (OperationCanceledException e)
@@ -160,5 +164,6 @@ namespace Algorithms.App.ViewModels
             }
             return true;
         }
+
     }
 }

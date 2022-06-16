@@ -30,7 +30,7 @@
             <Button Padding="10" Text="Stop generating"  Command="{Binding StopGeneratingCommand}" IsEnabled="{Binding CanStop}"/> 
         </StackLayout>
 
-        <Editor Margin="0,30" TextColor="White" IsReadOnly="True" Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding Result}" />
+        <Editor Margin="0,30" TextColor="{AppThemeBinding Light=Black, Dark=White}" IsReadOnly="True" Grid.Row="2" Grid.ColumnSpan="2" Text="{Binding Result}" />
         <Button Padding="10" Text="Go back" Grid.Row="3"  Command="{Binding NavigateBackCommand}"/> 
     </Grid>
 </ContentPage>
