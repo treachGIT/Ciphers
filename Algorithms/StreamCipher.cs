@@ -22,14 +22,14 @@ namespace Algorithms
         {
             LFSR keyGenerator = new LFSR(initialSeed, polynomialBitMask);
             string key = keyGenerator.GenerateKey(text);
-            Console.WriteLine(key);
 
+            string result = string.Empty;
             for (int i = 0; i < text.Length; i++)
             {
-                string replacement = (text[i] ^ key[i]).ToString();
-                text = text.Remove(i, 1).Insert(i, replacement);
+                string xorResult = (text[i] ^ key[i]).ToString();
+                result += xorResult;
             }
-            return text;
+            return result;
         }
     }
 }

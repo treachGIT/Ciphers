@@ -96,11 +96,8 @@ namespace AlgorithmsLibrary
                 for (int j = 0; j < powerBits.Count; j++)
                     bitsToXor[j] = seed[powerBits[j]];
 
-                //wynik operacji XOR ustawiamy jako najstarszy bit
                 string newFirstBit = XOR(bitsToXor);
 
-                //char c = newFirstBit[0];
-                //char t = inputText[i];
                 int c = (int)char.GetNumericValue(newFirstBit[0]);
                 int t = (int)char.GetNumericValue(inputText[i]);
 
@@ -130,11 +127,8 @@ namespace AlgorithmsLibrary
                 for (int j = 0; j < powerBits.Count; j++)
                     bitsToXor[j] = seed[powerBits[j]];
 
-                //wynik operacji XOR ustawiamy jako najstarszy bit
                 string newFirstBit = XOR(bitsToXor);
 
-                //char c = newFirstBit[0];
-                //char t = inputText[i];
                 int c = (int)char.GetNumericValue(newFirstBit[0]);
                 int t = (int)char.GetNumericValue(inputText[i]);
 
