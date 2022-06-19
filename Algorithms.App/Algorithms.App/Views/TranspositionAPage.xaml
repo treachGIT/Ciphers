@@ -2,11 +2,47 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Algorithms.App.Views.TranspositionAPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+
+    <Grid Padding="30,10,30,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Label FontSize="40" Text="Transposition A"  Grid.ColumnSpan="2" Grid.Row="0" Margin="0,0,0,50"/>
+
+        <StackLayout Grid.Column="0" Grid.Row="1" Margin="0,0,30,0">
+            <Label FontSize="Title" Text="Encryption" Margin="0,10"/>
+            <Label Text="Text to encrypt" />
+            <Entry Text="{Binding TextToEncrypt, Mode=TwoWay}"></Entry>
+            <Label Text="Key length" />
+            <Entry Text="{Binding EncryptKeyLength, Mode=TwoWay}"></Entry>
+            <Label Text="Key" />
+            <Entry Text="{Binding EncryptKey, Mode=TwoWay}"></Entry>
+            <Button Text="Encrypt" Command="{Binding EncryptCommand}" IsEnabled="{Binding CanEncrypt}"/>
+            <Label Text="Result" />
+            <Entry IsReadOnly="True" Text="{Binding EncryptResult}" />
         </StackLayout>
-    </ContentPage.Content>
+
+        <StackLayout Grid.Column="1" Grid.Row="1" Margin="30,0,0,0">
+            <Label FontSize="Title" Text="Decryption" Margin="0,10"/>
+            <Label Text="Text to encrypt" />
+            <Entry Text="{Binding TextToDecrypt, Mode=TwoWay}"></Entry>
+            <Label Text="Key length" />
+            <Entry Text="{Binding DecryptKeyLength, Mode=TwoWay}"></Entry>
+            <Label Text="Key" />
+            <Entry Text="{Binding DecryptKey, Mode=TwoWay}"></Entry>
+            <Button Text="Decrypt" Command="{Binding DecryptCommand}" IsEnabled="{Binding CanDecrypt}"/>
+            <Label Text="Result" />
+            <Entry IsReadOnly="True" Text="{Binding DecryptResult}" />
+        </StackLayout>
+
+        <Button Padding="10" Text="Go back" Grid.Row="3"  Command="{Binding NavigateBackCommand}"/>
+    </Grid>
 </ContentPage>

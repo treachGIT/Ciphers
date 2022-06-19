@@ -29,9 +29,9 @@
             <Button  Margin="0,10,0,0" Grid.Row="1" Grid.Column="0" TextColor="White" Text="Rail fence" WidthRequest="150" HeightRequest="120"
                       CornerRadius="30" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040" Command="{Binding NavigateToRailFenceCommand}"/>
             <Button Margin="0,10,0,0" Grid.Row="1" Grid.Column="1" TextColor="White" Text="Transposition A" WidthRequest="150" HeightRequest="120"
-                      CornerRadius="30" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040" />
+                      CornerRadius="30" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040" Command="{Binding NavigateToTranspositionACommand}"/>
             <Button Margin="0,10,0,0" Grid.Row="1" Grid.Column="2" TextColor="White" Text="Transposition B" WidthRequest="150" HeightRequest="120"
-                      CornerRadius="30" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040" />
+                      CornerRadius="30" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#404040" Command="{Binding NavigateToTranspositionBCommand}"/>
 
             <StackLayout Grid.Row="2" Grid.ColumnSpan="3">
                 <Label Margin="0,20,0,0"  FontSize="20" HorizontalOptions="Center" >Stream Ciphers</Label>

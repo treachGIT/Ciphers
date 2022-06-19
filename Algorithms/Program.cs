@@ -13,7 +13,7 @@ namespace Algorithms
             //string res = des.Encrypt("01000101", "0001001100110100010101110111100110011011101111001101111111110001");
            // string res = TranspositionA.Encrypt("YCPRGTROHAYOSA", 4,"3-1-4-2");
             //string result = StreamCipher.Encrypt("1010", "0110", "1011");
-            string res = TranspositionB.Encrypt("HERE IS A SECRET MESSAGE ENCIPHERED BY TRANSPOSITION", "CONVENIENCE");
+            string res = TranspositionB.Decrypt("CGTHPPRRYAOY", "CIPHER");
             Console.WriteLine(res);
     
         }

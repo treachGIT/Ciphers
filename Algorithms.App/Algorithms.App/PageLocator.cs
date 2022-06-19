@@ -13,6 +13,8 @@ namespace Algorithms.App
 		{
 			{ typeof(MainPageViewModel), typeof(MainPage) },
 			{ typeof(RailFenceViewModel), typeof(RailFencePage) },
+			{ typeof(TranspositionAViewModel), typeof(TranspositionAPage) },
+			{ typeof(TranspositionBViewModel), typeof(TranspositionBPage) },
 			{ typeof(LFSRViewModel), typeof(LFSRPage) },
 			{ typeof(StreamCipherPageViewModel), typeof(StreamCipherPage) },
 			{ typeof(CiphertextAutokeyViewModel), typeof(CiphertextAutokeyPage) }

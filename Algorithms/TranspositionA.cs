@@ -106,23 +106,48 @@ namespace Algorithms
 
                 //przechodzimy po wszystkich kluczach
                 int j = 0;
-                foreach (int keyIndex in key)
+
+                //jeżeli jesteśmy w ostatnim rzędzie
+                if (i + 1 == rowCount && textLines[i].Length != key.Length)
                 {
-                    //jeżeli jesteśmy w ostatnim rzędzie w ostatnim znaku, wpisujemy go w kolumnę o najniższym indeksie
-                    if (textLines[i].Length - 1 == j && i+1 == rowCount)
+                    //ile wolnego miejsca w ostatnim rzędzie
+                    int freePlacesCount = key.Length - textLines[i].Length;
+
+                    //wyliczamy najwyższą wartość klucza
+                    int maxNewKey = key.Max() - freePlacesCount;
+
+                    //inicjujemy nową tabelę dla kluczy ostatniego rzędu
+                    int[] lastLineKey = new int[textLines[i].Length];
+
+                    int lastLineKeyIndex = 0;
+           
+                    //ze starego klucza bierzemy tylko potrzebbne wartości
+                    foreach (int keyIndex in key)
                     {
-                        for(int x = 0; x < resultline.Length; x++)
+                        if (keyIndex <= maxNewKey)
                         {
-                            if (resultline[x] == '\0')
-                            {
-                                resultline[x] = textLines[i][j];
-                                break;
-                            }
-                            
+                            lastLineKey[lastLineKeyIndex] = keyIndex;
+                            lastLineKeyIndex++;
                         }
-                        break;
+                    }           
+
+                    foreach (int keyIndex in lastLineKey)
+                    {
+                        //dodajemy znak w odpowiednim miejscu do uporządkowanego rzędu
+                        resultline[keyIndex - 1] = textLines[i][j];
+                        j++;
                     }
 
+                    //dodajemy uporządkowany rząd do wyniku
+                    string temp1 = new string(resultline);
+                    result += temp1;
+
+                    break;
+                }
+
+                foreach (int keyIndex in key)
+                {                   
+                    Console.WriteLine(keyIndex + ": " + textLines[i][j]);
                     //dodajemy znak w odpowiednim miejscu do uporządkowanego rzędu
                     resultline[keyIndex - 1] = textLines[i][j];
                     j++;

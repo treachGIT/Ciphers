@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace AlgorithmsLibrary
@@ -49,7 +50,8 @@ namespace AlgorithmsLibrary
                 //przechodzimy po wszystkich kluczach, poruszamy się w kolumnie i dodajemy do wyniku dane komórki
                 foreach (int keyIndex in key)
                 {
-                    result += matrix[i, keyIndex - 1];
+                    if(matrix[i, keyIndex - 1] != '\0')
+                        result += matrix[i, keyIndex - 1];
                 }
             }
 
@@ -89,9 +91,7 @@ namespace AlgorithmsLibrary
                     textLines[index] = inputText.Substring(i, length);
                 }
 
-                Console.WriteLine(textLines[index]);
                 index++;
-
             }
 
             //przechodzimy po każdym rzędzie i go porządkujemy 
@@ -100,28 +100,54 @@ namespace AlgorithmsLibrary
             {
                 //przygotowujemy nową tablicę do uprządkowanego rzędu
                 char[] resultline = new char[length];
-                for(int x = 0; x < resultline.Length; x++)
-                    resultline[x] = '\0';
-
-                //przechodzimy po wszystkich kluczach
-                int j = 0;
-                foreach (int keyIndex in key)
+                for(int x=0; x< resultline.Length; x++)
                 {
-                    //jeżeli jesteśmy w ostatnim rzędzie w ostatnim znaku, wpisujemy go w kolumnę o najniższym indeksie
-                    if (textLines[i].Length - 1 == j && i + 1 == rowCount)
-                    {
-                        for (int x = 0; x < resultline.Length; x++)
-                        {
-                            if (resultline[x] == '\0')
-                            {
-                                resultline[x] = textLines[i][j];
-                                break;
-                            }
+                    resultline[x] = '\0';
+                }
 
+
+                int j = 0;
+                //jeżeli jesteśmy w ostatnim rzędzie
+                if (i + 1 == rowCount && textLines[i].Length != key.Length)
+                {
+                    //ile wolnego miejsca w ostatnim rzędzie
+                    int freePlacesCount = key.Length - textLines[i].Length;
+
+                    //wyliczamy najwyższą wartość klucza
+                    int maxNewKey = key.Max() - freePlacesCount;
+
+                    //inicjujemy nową tabelę dla kluczy ostatniego rzędu
+                    int[] lastLineKey = new int[textLines[i].Length];
+
+                    int lastLineKeyIndex = 0;
+
+                    //ze starego klucza bierzemy tylko potrzebbne wartości
+                    foreach (int keyIndex in key)
+                    {
+                        if (keyIndex <= maxNewKey)
+                        {
+                            lastLineKey[lastLineKeyIndex] = keyIndex;
+                            lastLineKeyIndex++;
                         }
-                        break;
                     }
 
+                    foreach (int keyIndex in lastLineKey)
+                    {
+                        //dodajemy znak w odpowiednim miejscu do uporządkowanego rzędu
+                        resultline[keyIndex - 1] = textLines[i][j];
+                        j++;
+                    }
+
+                    //dodajemy uporządkowany rząd do wyniku
+                    string temp1 = new string(resultline);
+                    result += temp1;
+
+                    break;
+                }
+
+                //przechodzimy po wszystkich kluczach
+                foreach (int keyIndex in key)
+                {
                     //dodajemy znak w odpowiednim miejscu do uporządkowanego rzędu
                     resultline[keyIndex - 1] = textLines[i][j];
                     j++;

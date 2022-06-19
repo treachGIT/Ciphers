@@ -17,6 +17,10 @@ namespace Algorithms.App.ViewModels
 
             this.navigateToRailFenceCommand = new Command(async () => await _navigationService.NavigateToAsync<RailFenceViewModel>());
 
+            this.navigateToTranspositionACommand = new Command(async () => await _navigationService.NavigateToAsync<TranspositionAViewModel>());
+
+            this.navigateToTranspositionBCommand = new Command(async () => await _navigationService.NavigateToAsync<TranspositionBViewModel>());
+
             this.navigateToLFSRGeneratorCommand = new Command(async () => await _navigationService.NavigateToAsync<LFSRViewModel>());
 
             this.navigateToStreamCipherCommand = new Command(async () => await _navigationService.NavigateToAsync<StreamCipherPageViewModel>());
