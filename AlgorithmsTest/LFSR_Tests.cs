@@ -1,4 +1,4 @@
-using Algorithms;
+using AlgorithmsLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AlgorithmsTest

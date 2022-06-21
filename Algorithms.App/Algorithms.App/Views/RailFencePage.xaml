@@ -23,9 +23,9 @@
             <Entry Text="{Binding TextToEncrypt, Mode=TwoWay}"></Entry>
             <Label Text="Key" />
             <Entry Text="{Binding EncryptKey, Mode=TwoWay}"></Entry>
-            <Button Text="Encrypt" Command="{Binding EncryptCommand}" IsEnabled="{Binding CanEncrypt}"/>
+            <Button Padding="10" Text="Encrypt" Command="{Binding EncryptCommand}" IsEnabled="{Binding CanEncrypt}"/>
             <Label Text="Result" />
-            <Entry IsReadOnly="True" Text="{Binding EncryptResult}" />
+            <Entry IsReadOnly="False" Text="{Binding EncryptResult}" />
         </StackLayout>
 
         <StackLayout Grid.Column="1" Grid.Row="1" Margin="30,0,0,0">
@@ -34,9 +34,9 @@
             <Entry Text="{Binding TextToDecrypt, Mode=TwoWay}"></Entry>
             <Label Text="Key" />
             <Entry Text="{Binding DecryptKey, Mode=TwoWay}"></Entry>
-            <Button Text="Decrypt" Command="{Binding DecryptCommand}" IsEnabled="{Binding CanDecrypt}"/>
+            <Button Padding="10" Text="Decrypt" Command="{Binding DecryptCommand}" IsEnabled="{Binding CanDecrypt}"/>
             <Label Text="Result" />
-            <Entry IsReadOnly="True" Text="{Binding DecryptResult}" />
+            <Entry IsReadOnly="False" Text="{Binding DecryptResult}" />
         </StackLayout>
         
         <Button Padding="10" Text="Go back" Grid.Row="3"  Command="{Binding NavigateBackCommand}"/>
